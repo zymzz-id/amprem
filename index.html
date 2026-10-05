@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zymzz Studio Helper AMPREM - iOS 17 Pro Activator</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (SF Pro style alternatives) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    colors: {
+                        iosBlue: '#007AFF',
+                        iosOrange: '#FF9500',
+                        iosRed: '#FF3B30',
+                        iosGray: '#8E8E93',
+                        iosBg: '#F2F2F7',
+                        iosCard: 'rgba(255, 255, 255, 0.72)',
+                        goldLight: '#FFF8E1',
+                        goldMain: '#D4AF37',
+                        goldDark: '#B8860B',
+                    },
+                    boxShadow: {
+                        'ios-glass': '0 8px 32px 0 rgba(31, 38, 135, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.8)',
+                        'ios-card': '0 12px 40px -10px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04)',
+                        'ios-button': '0 4px 14px 0 rgba(0, 122, 255, 0.35)',
+                        'gold-button': '0 6px 20px 0 rgba(212, 175, 55, 0.45)',
+                        'island': '0 10px 30px -5px rgba(0, 0, 0, 0.25)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 50%, #f0f4f8 100%);
+            min-height: 100vh;
+            color: #1c1c1e;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            transition: background 1.2s ease-in-out;
+        }
+
+        /* Gold Theme Background Transition */
+        body.gold-theme-active {
+            background: linear-gradient(135deg, #FFFDF0 0%, #F7E9B8 40%, #E6C565 80%, #D4AF37 100%) !important;
+        }
+
+        /* Red Theme Background Transition */
+        body.red-theme-active {
+            background: linear-gradient(135deg, #FFF5F5 0%, #FFE3E3 40%, #FFC9C9 80%, #FFA8A8 100%) !important;
+        }
+
+        /* Dynamic Island Glow States */
+        .island-glow-success {
+            border-color: rgba(0, 122, 255, 0.8) !important;
+            box-shadow: 0 0 25px rgba(0, 122, 255, 0.4), 0 10px 30px -5px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .island-glow-gold {
+            border-color: rgba(255, 215, 0, 0.9) !important;
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.65), 0 12px 35px -5px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        .island-glow-error {
+            border-color: rgba(255, 59, 48, 0.8) !important;
+            box-shadow: 0 0 25px rgba(255, 59, 48, 0.35), 0 10px 30px -5px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .island-glow-process {
+            border-color: rgba(0, 122, 255, 0.8) !important;
+            box-shadow: 0 0 25px rgba(0, 122, 255, 0.35), 0 10px 30px -5px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        /* Frosted Glass iOS 17 Effect */
+        .ios-glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        /* Smooth iOS Slide & Fade Transitions */
+        .step-transition {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animate-ios-slide-in {
+            animation: iosSlideIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes iosSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(24px) scale(0.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Background Soft Lighting Blobs */
+        .ambient-blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(90px);
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.6;
+            transition: all 1.2s ease-in-out;
+        }
+
+        /* Metallic Gold Shimmer Effect */
+        .gold-shimmer {
+            background: linear-gradient(110deg, #d4af37 0%, #fff3a1 25%, #d4af37 50%, #aa7c11 75%, #ffd700 100%);
+            background-size: 200% 100%;
+            animation: shine 3s linear infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-glass-card {
+            background: rgba(255, 252, 240, 0.88) !important;
+            backdrop-filter: blur(30px) saturate(200%);
+            -webkit-backdrop-filter: blur(30px) saturate(200%);
+            border: 1.5px solid rgba(212, 175, 55, 0.5) !important;
+            box-shadow: 0 20px 50px -10px rgba(184, 134, 11, 0.25), 0 0 30px 0 rgba(255, 215, 0, 0.2) !important;
+        }
+
+        .red-glass-card {
+            background: rgba(255, 245, 245, 0.92) !important;
+            backdrop-filter: blur(30px) saturate(200%);
+            -webkit-backdrop-filter: blur(30px) saturate(200%);
+            border: 1.5px solid rgba(244, 63, 94, 0.5) !important;
+            box-shadow: 0 20px 50px -10px rgba(225, 29, 72, 0.25), 0 0 30px 0 rgba(244, 63, 94, 0.2) !important;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes eqBar {
+            0%, 100% { height: 4px; }
+            50% { height: 14px; }
+        }
+        .animate-eq-1 { animation: eqBar 0.6s ease-in-out infinite; }
+        .animate-eq-2 { animation: eqBar 0.8s ease-in-out infinite 0.15s; }
+        .animate-eq-3 { animation: eqBar 0.5s ease-in-out infinite 0.3s; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen justify-between antialiased selection:bg-iosBlue selection:text-white">
+
+    <!-- Background Ambient Lighting (iOS Aesthetic) -->
+    <div id="blob-1" class="ambient-blob w-96 h-96 bg-blue-200 top-[5%] left-[10%] animate-pulse"></div>
+    <div id="blob-2" class="ambient-blob w-[30rem] h-[30rem] bg-indigo-100 bottom-[10%] right-[10%]"></div>
+    <div id="blob-3" class="ambient-blob w-80 h-80 bg-slate-200 top-[40%] right-[25%]"></div>
+
+    <!-- Header with iOS 17 Dynamic Island -->
+    <header class="sticky top-0 z-50 w-full pt-4 pb-2 px-4 flex justify-center items-center pointer-events-none">
+        <div id="dynamic-island" class="pointer-events-auto bg-black text-white rounded-[32px] px-4 py-2.5 shadow-island border border-white/15 transition-all duration-500 ease-out flex flex-col items-center justify-center min-w-[300px] max-w-md w-full">
+            
+            <!-- Dynamic Island Compact Mode (Default Header) -->
+            <div id="island-compact" class="flex items-center justify-between w-full space-x-3">
+                <div class="flex items-center space-x-2.5">
+                    <img src="https://raw.githubusercontent.com/zymzz-id/file/main/images.jpeg" alt="Logo" class="w-7 h-7 rounded-full object-cover border border-iosBlue/60 shrink-0 shadow-[0_0_12px_rgba(0,122,255,0.85)]" onerror="this.src='https://placehold.co/100x100/007AFF/ffffff?text=AM'">
+                    <div class="flex items-center space-x-1.5">
+                        <span class="text-[11px] font-bold tracking-tight text-white/90">AM PREM Free</span>
+                        <span class="px-1.5 py-0.5 text-[9px] font-bold bg-iosBlue/30 text-sky-300 border border-iosBlue/50 rounded-full tracking-wide">1 tahun</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <!-- Music Dynamic Mini Button -->
+                    <button type="button" onclick="toggleMusicPlayer()" class="flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-iosBlue/20 hover:bg-iosBlue/30 text-iosBlue border border-iosBlue/30 transition-all text-[11px] font-semibold cursor-pointer">
+                        <i id="music-mini-icon" class="fa-solid fa-compact-disc text-iosBlue text-xs animate-spin" style="animation-duration: 4s;"></i>
+                        <span id="music-mini-text" class="hidden sm:inline">Doin' Time</span>
+                        <div id="mini-eq" class="flex items-end gap-0.5 h-3 ml-0.5">
+                            <span class="w-0.5 bg-iosBlue rounded-full animate-eq-1"></span>
+                            <span class="w-0.5 bg-iosBlue rounded-full animate-eq-2"></span>
+                            <span class="w-0.5 bg-iosBlue rounded-full animate-eq-3"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Island MP3 Audio Player View -->
+            <div id="island-music" class="hidden flex-col w-full pt-1 pb-1 transition-all">
+                <div class="flex items-center justify-between w-full pb-2 border-b border-white/10 mb-2">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-music text-iosBlue text-sm"></i>
+                        <span class="text-xs font-bold text-white tracking-tight">Audio Player (Doin' Time)</span>
+                    </div>
+                    <button type="button" onclick="toggleMusicPlayer()" class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-xs text-slate-300 transition-colors">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- MP3 Custom Player Controls -->
+                <div class="flex items-center justify-between bg-white/10 p-2.5 rounded-2xl border border-white/10">
+                    <div class="flex items-center space-x-3">
+                        <div class="relative w-11 h-11 rounded-xl overflow-hidden shadow-md shrink-0 border border-white/20">
+                            <img src="https://raw.githubusercontent.com/zymzz-id/file/main/SpotiDown.App%20-%20Doin_%20Time%20-%20Lana%20Del%20Rey.jpeg" alt="Cover" class="w-full h-full object-cover" id="cover-art-img">
+                            <div class="absolute inset-0 bg-black/10"></div>
+                        </div>
+                        <div class="flex flex-col text-left overflow-hidden">
+                            <span class="text-xs font-bold text-white truncate">Doin' Time</span>
+                            <span class="text-[10px] text-slate-300 truncate">Lana Del Rey</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <button type="button" onclick="togglePlayPauseAudio()" id="btn-audio-play" class="w-9 h-9 rounded-full bg-iosBlue hover:bg-blue-600 active:scale-95 text-white flex items-center justify-center text-sm shadow-md transition-all">
+                            <i class="fa-solid fa-pause" id="audio-play-icon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Seek / Time Bar -->
+                <div class="w-full mt-2.5 px-1 space-y-1">
+                    <div class="w-full bg-white/20 h-1.5 rounded-full overflow-hidden cursor-pointer" onclick="seekAudio(event)" id="progress-container">
+                        <div id="audio-progress-bar" class="bg-iosBlue h-full w-0 transition-all duration-100 rounded-full"></div>
+                    </div>
+                    <div class="flex justify-between text-[9px] text-slate-400 font-mono">
+                        <span id="audio-current-time">0:00</span>
+                        <span id="audio-duration-time">0:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Island Expanded Notification Banner (Success, Processing & Error Alerts) -->
+            <div id="island-expanded" class="hidden flex-col w-full pt-1 pb-1 transition-all">
+                <div class="flex items-center justify-between w-full pb-2 border-b border-white/10 mb-2 px-1">
+                    <div id="island-notif-header" class="flex items-center space-x-2">
+                        <!-- Dynamic Header Content Inserted via JS -->
+                    </div>
+                    <button type="button" onclick="dismissIslandNotif()" class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-xs text-slate-300 transition-colors">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div id="island-notif-body" class="text-xs text-gray-200 font-medium leading-relaxed px-1">
+                    <!-- Dynamic Message Content Inserted via JS -->
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-xl mx-auto w-full px-4 py-6 flex-grow flex flex-col justify-center space-y-6">
+
+        <!-- Progress Indicator Bar (iOS Style Segmented Control) -->
+        <div class="ios-glass-panel rounded-2xl p-2 shadow-ios-glass flex items-center space-x-2">
+            <div id="progress-segment-1" class="flex-1 h-2 rounded-full bg-iosBlue transition-all duration-500"></div>
+            <div id="progress-segment-2" class="flex-1 h-2 rounded-full bg-gray-200 transition-all duration-500"></div>
+            <div id="progress-segment-3" class="flex-1 h-2 rounded-full bg-gray-200 transition-all duration-500"></div>
+        </div>
+
+        <!-- ==================== STEP 1 CARD: SEND MAGIC LINK ==================== -->
+        <div id="card-step-1" class="ios-glass-panel rounded-[28px] p-6 shadow-ios-card border border-white/80 animate-ios-slide-in">
+            <div class="flex items-center justify-between mb-5">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-2xl bg-iosBlue/10 text-iosBlue flex items-center justify-center font-bold text-lg">
+                        1
+                    </div>
+                    <div>
+                        <h2 class="text-base font-bold text-slate-900 tracking-tight">Kirim Magic Link</h2>
+                        <p class="text-xs text-slate-500">Masukkan alamat email akun Anda</p>
+                    </div>
+                </div>
+            </div>
+
+            <form id="form-step-1" onsubmit="handleSendMagicLink(event)" class="space-y-4">
+                <div>
+                    <label for="email-input" class="block text-xs font-semibold text-slate-600 mb-1.5 ml-1">Alamat Email</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                        <input type="email" id="email-input" required placeholder="nama@email.com" class="w-full pl-10 pr-4 py-3 bg-white/80 border border-slate-200/80 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-iosBlue/50 focus:border-iosBlue transition-all shadow-sm placeholder:text-slate-400 text-slate-900 font-medium">
+                    </div>
+                </div>
+
+                <button type="submit" id="btn-step-1" class="w-full py-3.5 px-4 bg-iosBlue hover:bg-blue-600 active:scale-[0.98] text-white font-semibold text-sm rounded-2xl transition-all shadow-ios-button flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span id="btn-step-1-text">Kirim Magic Link ke Email</span>
+                </button>
+            </form>
+
+            <div class="mt-4 pt-3 border-t border-slate-100 flex justify-center items-center text-[11px] text-slate-400">
+                <span><i class="fa-solid fa-shield-halved mr-1"></i> Aman & Langsung ke Inbox</span>
+            </div>
+        </div>
+
+        <!-- ==================== STEP 2 CARD: TEMPEL MAGIC LINK ==================== -->
+        <div id="card-step-2" class="hidden ios-glass-panel rounded-[28px] p-6 shadow-ios-card border border-white/80 step-transition">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-2xl bg-iosBlue/10 text-iosBlue flex items-center justify-center font-bold text-lg">
+                        2
+                    </div>
+                    <div>
+                        <h2 class="text-base font-bold text-slate-900 tracking-tight">Tempel & Verifikasi Link</h2>
+                        <p class="text-xs text-slate-500">Salin link verifikasi yang diterima di email</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Badge Info -->
+            <div class="mb-4 px-3.5 py-2.5 rounded-xl bg-slate-100/80 border border-slate-200/60 flex justify-between items-center text-xs">
+                <span class="text-slate-500 font-medium">Email: <strong id="saved-email-display" class="text-slate-800 font-semibold">-</strong></span>
+                <button type="button" onclick="goToStep1()" class="text-iosBlue font-medium hover:underline text-[11px]">Ubah Email</button>
+            </div>
+
+            <form id="form-step-2" onsubmit="handleVerifyAccount(event)" class="space-y-4">
+                <div>
+                    <div class="flex justify-between items-center mb-1.5 ml-1">
+                        <label for="raw-link-input" class="block text-xs font-semibold text-slate-600">Raw Magic Link Tautan</label>
+                        <button type="button" onclick="pasteFromClipboard()" class="text-xs text-iosBlue hover:text-blue-700 font-semibold flex items-center gap-1 transition-colors">
+                            <i class="fa-regular fa-clipboard"></i> Tempel dari Clipboard
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <textarea id="raw-link-input" rows="3" required placeholder="Tempelkan tautan verifikasi lengkap di sini..." class="w-full p-3.5 bg-white/80 border border-slate-200/80 rounded-2xl text-xs font-mono focus:outline-none focus:ring-2 focus:ring-iosBlue/50 focus:border-iosBlue transition-all shadow-sm placeholder:text-slate-400 text-slate-800 custom-scrollbar resize-none"></textarea>
+                    </div>
+                </div>
+
+                <div class="p-3 rounded-2xl bg-iosBlue/10 border border-iosBlue/20 flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-xl bg-iosBlue text-white flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-key text-sm"></i>
+                    </div>
+                    <div class="text-xs text-slate-700">
+                        <p class="font-semibold text-iosBlue">Verifikasi Token Akun</p>
+                        <p class="text-[11px] text-slate-500">Proses verifikasi akan memeriksa token dari tautan sebelum lanjut ke Langkah 3.</p>
+                    </div>
+                </div>
+
+                <button type="submit" id="btn-step-2" class="w-full py-3.5 px-4 bg-iosBlue hover:bg-blue-600 active:scale-[0.98] text-white font-semibold text-sm rounded-2xl transition-all shadow-ios-button flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-shield-check"></i>
+                    <span id="btn-step-2-text">Verifikasi Akun (Langkah 2)</span>
+                </button>
+            </form>
+        </div>
+
+        <!-- ==================== STEP 3 CARD: APPLY PREMIUM (MANUAL) ==================== -->
+        <div id="card-step-3" class="hidden ios-glass-panel rounded-[28px] p-6 shadow-ios-card border border-white/80 step-transition">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-2xl bg-iosBlue/10 text-iosBlue flex items-center justify-center font-bold text-lg">
+                        3
+                    </div>
+                    <div>
+                        <h2 class="text-base font-bold text-slate-900 tracking-tight">Aktifkan Status Premium</h2>
+                        <p class="text-xs text-slate-500">Langkah terakhir untuk mengaktifkan akun</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-5 space-y-2">
+                <div class="px-3.5 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-between text-xs text-emerald-700">
+                    <span class="font-semibold flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-check text-emerald-500"></i> Akun Terverifikasi
+                    </span>
+                    <span id="step3-email-display" class="font-mono text-[11px] text-slate-600">email@verified.com</span>
+                </div>
+                <div class="px-3.5 py-2.5 rounded-xl bg-slate-100/80 border border-slate-200/60 flex items-center justify-between text-xs">
+                    <span class="text-slate-500 font-medium">Status ID Token:</span>
+                    <span class="font-semibold text-iosBlue flex items-center gap-1">
+                        <i class="fa-solid fa-lock text-[10px]"></i> Token Siap Digunakan
+                    </span>
+                </div>
+            </div>
+
+            <button type="button" onclick="handleApplyPremium()" id="btn-step-3" class="w-full py-4 px-4 bg-iosBlue hover:bg-blue-600 active:scale-[0.98] text-white font-semibold text-sm rounded-2xl transition-all shadow-ios-button flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-crown text-amber-300"></i>
+                <span id="btn-step-3-text">Klik di Sini untuk Aktifkan Premium</span>
+            </button>
+        </div>
+
+    </main>
+
+    <!-- iOS Footer -->
+    <footer class="py-4 text-center text-xs text-slate-400">
+        <div class="max-w-xl mx-auto px-4 flex justify-between items-center">
+            <p>&copy; 2026 Zymzz Studio Helper</p>
+            <p class="font-medium text-slate-500"><i class="fa-brands fa-apple text-slate-400 mr-1"></i> iOS 17 Pro Theme</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mengambil Base API URL secara dinamis HANYA dari Environment Variable (.env / process.env / window.env)
+        const API_URL = (typeof process !== 'undefined' && process.env && process.env.API_URL) 
+            ? process.env.API_URL 
+            : (typeof window !== 'undefined' && window.env && window.env.API_URL) 
+                ? window.env.API_URL 
+                : (typeof window !== 'undefined' && window.API_URL) 
+                    ? window.API_URL 
+                    : '';
+
+        let state = {
+            email: '',
+            rawLink: '',
+            idToken: null,
+            step: 1
+        };
+
+        // GitHub Raw MP3 Audio Source
+        const MP3_URL = 'https://raw.githubusercontent.com/zymzz-id/file/main/doin%20tine.mp3';
+        const audio = new Audio(MP3_URL);
+        audio.preload = 'auto';
+        audio.loop = true;
+
+        let musicIslandExpanded = false;
+        let isPlaying = false;
+        let hasInteracted = false;
+
+        // Audio Progress and Time Update
+        audio.addEventListener('timeupdate', () => {
+            if (!audio.duration) return;
+            const pct = (audio.currentTime / audio.duration) * 100;
+            const bar = document.getElementById('audio-progress-bar');
+            if (bar) bar.style.width = pct + '%';
+
+            const curTimeEl = document.getElementById('audio-current-time');
+            if (curTimeEl) curTimeEl.innerText = formatTime(audio.currentTime);
+
+            const durTimeEl = document.getElementById('audio-duration-time');
+            if (durTimeEl && !isNaN(audio.duration)) durTimeEl.innerText = formatTime(audio.duration);
+        });
+
+        audio.addEventListener('ended', () => {
+            audio.currentTime = 0;
+            audio.play();
+        });
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        function togglePlayPauseAudio() {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    updateAudioUI(true);
+                }).catch(e => console.log('Audio playback blocked or failed:', e));
+            } else {
+                audio.pause();
+                isPlaying = false;
+                updateAudioUI(false);
+            }
+        }
+
+        function updateAudioUI(playing) {
+            const playIcon = document.getElementById('audio-play-icon');
+            const coverImg = document.getElementById('cover-art-img');
+            const miniEq = document.getElementById('mini-eq');
+            const miniIcon = document.getElementById('music-mini-icon');
+
+            if (playIcon) playIcon.className = playing ? 'fa-solid fa-pause' : 'fa-solid fa-play ml-0.5';
+            if (coverImg) {
+                if (playing) coverImg.classList.add('scale-105');
+                else coverImg.classList.remove('scale-105');
+            }
+            if (miniIcon) {
+                if (playing) miniIcon.classList.add('animate-spin');
+                else miniIcon.classList.remove('animate-spin');
+            }
+            if (miniEq) {
+                if (playing) {
+                    miniEq.classList.remove('hidden');
+                    miniEq.classList.add('flex');
+                } else {
+                    miniEq.classList.add('hidden');
+                    miniEq.classList.remove('flex');
+                }
+            }
+        }
+
+        function seekAudio(event) {
+            const container = document.getElementById('progress-container');
+            if (!container || !audio.duration) return;
+            const rect = container.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const width = rect.width;
+            audio.currentTime = (clickX / width) * audio.duration;
+        }
+
+        function attemptAutoplay() {
+            if (isPlaying) return;
+            
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    isPlaying = true;
+                    hasInteracted = true;
+                    updateAudioUI(true);
+                }).catch(err => {
+                    // Jika diblokir oleh Autoplay Policy browser, putar pada interaksi/gerakan micro pertama
+                    const userInteractionEvents = ['click', 'touchstart', 'touchend', 'pointerdown', 'mousemove', 'scroll', 'keydown'];
+                    
+                    const triggerPlayOnInteraction = () => {
+                        audio.play().then(() => {
+                            isPlaying = true;
+                            hasInteracted = true;
+                            updateAudioUI(true);
+                            userInteractionEvents.forEach(evt => window.removeEventListener(evt, triggerPlayOnInteraction));
+                        }).catch(() => {});
+                    };
+
+                    userInteractionEvents.forEach(evt => {
+                        window.addEventListener(evt, triggerPlayOnInteraction, { passive: true, once: true });
+                    });
+                });
+            }
+        }
+
+        // Jalankan autoplay secepat mungkin begitu skrip dan DOM dimuat
+        attemptAutoplay();
+
+        window.addEventListener('DOMContentLoaded', () => {
+            attemptAutoplay();
+        });
+
+        window.addEventListener('load', () => {
+            attemptAutoplay();
+        });
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                if (!audio.paused) {
+                    audio.pause();
+                    updateAudioUI(false);
+                }
+            } else {
+                if (hasInteracted) {
+                    audio.play().then(() => {
+                        updateAudioUI(true);
+                    }).catch(() => {});
+                }
+            }
+        });
+
+        function toggleMusicPlayer() {
+            const island = document.getElementById('dynamic-island');
+            const compactView = document.getElementById('island-compact');
+            const musicView = document.getElementById('island-music');
+            const expandedNotifView = document.getElementById('island-expanded');
+
+            musicIslandExpanded = !musicIslandExpanded;
+
+            if (musicIslandExpanded) {
+                if (expandedNotifView) {
+                    expandedNotifView.classList.add('hidden');
+                    expandedNotifView.classList.remove('flex');
+                }
+                if (compactView) compactView.classList.add('hidden');
+                if (musicView) {
+                    musicView.classList.remove('hidden');
+                    musicView.classList.add('flex');
+                }
+                if (island) island.classList.add('island-glow-success');
+            } else {
+                if (musicView) {
+                    musicView.classList.add('hidden');
+                    musicView.classList.remove('flex');
+                }
+                if (compactView) compactView.classList.remove('hidden');
+                if (island) island.classList.remove('island-glow-success');
+            }
+        }
+
+        // Utility function to escape HTML entities
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        // HTTP POST Helper Function
+        async function post(action, data) {
+            if (!API_URL) {
+                throw new Error('API URL belum dikonfigurasi di Environment Variable (.env). Harap atur API_URL terlebih dahulu.');
+            }
+            try {
+                const response = await axios.post(
+                    API_URL,
+                    { action, ...data },
+                    { headers: { 'Content-Type': 'application/json' } }
+                );
+                return response.data;
+            } catch (err) {
+                if (err.response && err.response.data) {
+                    return err.response.data;
+                }
+                try {
+                    const fetchRes = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ action, ...data })
+                    });
+                    const resData = await fetchRes.json();
+                    return resData;
+                } catch (fetchErr) {
+                    throw new Error(err.message || 'Gagal terhubung ke server API (CORS / Jaringan Terganggu)');
+                }
+            }
+        }
+
+        // Dynamic Island Notifications Controller
+        function showIslandNotif(type, title, message) {
+            const island = document.getElementById('dynamic-island');
+            const compactView = document.getElementById('island-compact');
+            const musicView = document.getElementById('island-music');
+            const expandedView = document.getElementById('island-expanded');
+            const headerContainer = document.getElementById('island-notif-header');
+            const bodyContainer = document.getElementById('island-notif-body');
+
+            if (!island || !compactView || !expandedView || !headerContainer || !bodyContainer) return;
+
+            musicIslandExpanded = false;
+            if (musicView) {
+                musicView.classList.add('hidden');
+                musicView.classList.remove('flex');
+            }
+
+            island.classList.remove('island-glow-success', 'island-glow-gold', 'island-glow-error', 'island-glow-process');
+
+            let iconHtml = '';
+            
+            if (type === 'gold') {
+                island.classList.add('island-glow-gold');
+                iconHtml = `<div class="w-6 h-6 rounded-full bg-amber-400/30 text-amber-300 flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-crown text-amber-300"></i></div>
+                            <span class="text-xs font-bold text-amber-200 tracking-tight">${escapeHtml(title)}</span>`;
+            } else if (type === 'success') {
+                island.classList.add('island-glow-success');
+                iconHtml = `<div class="w-6 h-6 rounded-full bg-iosBlue/20 text-iosBlue flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-check"></i></div>
+                            <span class="text-xs font-bold text-white tracking-tight">${escapeHtml(title)}</span>`;
+            } else if (type === 'error') {
+                island.classList.add('island-glow-error');
+                iconHtml = `<div class="w-6 h-6 rounded-full bg-iosRed/20 text-iosRed flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                            <span class="text-xs font-bold text-white tracking-tight">${escapeHtml(title)}</span>`;
+            } else if (type === 'process') {
+                island.classList.add('island-glow-process');
+                iconHtml = `<div class="w-6 h-6 rounded-full bg-iosBlue/20 text-iosBlue flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-spinner fa-spin"></i></div>
+                            <span class="text-xs font-bold text-white tracking-tight">${escapeHtml(title)}</span>`;
+            }
+
+            headerContainer.innerHTML = iconHtml;
+            bodyContainer.innerHTML = `<p class="leading-snug text-slate-200">${escapeHtml(message)}</p>`;
+
+            compactView.classList.add('hidden');
+            expandedView.classList.remove('hidden');
+            expandedView.classList.add('flex');
+        }
+
+        function dismissIslandNotif() {
+            const island = document.getElementById('dynamic-island');
+            const compactView = document.getElementById('island-compact');
+            const expandedView = document.getElementById('island-expanded');
+
+            if (island) {
+                island.classList.remove('island-glow-success', 'island-glow-gold', 'island-glow-error', 'island-glow-process');
+            }
+
+            if (expandedView) {
+                expandedView.classList.add('hidden');
+                expandedView.classList.remove('flex');
+            }
+            if (compactView) {
+                compactView.classList.remove('hidden');
+            }
+        }
+
+        // Handle Step 1: Send Magic Link
+        async function handleSendMagicLink(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('email-input').value.trim();
+            if (!emailInput) return;
+
+            state.email = emailInput;
+            const btn = document.getElementById('btn-step-1');
+            const btnText = document.getElementById('btn-step-1-text');
+
+            btn.disabled = true;
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+            btnText.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1"></i> Mengirim Link...';
+
+            showIslandNotif('process', 'Mengirim Magic Link...', `Memproses permintaan untuk email ${emailInput}`);
+
+            try {
+                const res = await post('send-magiclink', { email: state.email });
+
+                if (!res || !res.success) {
+                    throw new Error(res?.message || 'Gagal mengirim magic link');
+                }
+
+                showIslandNotif('success', 'Magic Link Terkirim! 📩', `Cek inbox atau folder spam email ${state.email} untuk menyalin tautannya.`);
+                
+                setTimeout(() => {
+                    goToStep2();
+                }, 1000);
+
+            } catch (err) {
+                const errorMessage = err.response?.data?.message || err.message || 'Terjadi kesalahan saat mengirim link';
+                showIslandNotif('error', 'Gagal Mengirim Magic Link ❌', errorMessage);
+            } finally {
+                btn.disabled = false;
+                btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                btnText.innerText = 'Kirim Magic Link ke Email';
+            }
+        }
+
+        // Handle Step 2: Verify Account
+        async function handleVerifyAccount(event) {
+            event.preventDefault();
+            const rawLinkInput = document.getElementById('raw-link-input').value.trim();
+            if (!rawLinkInput) {
+                showIslandNotif('error', 'Tautan Kosong ❌', 'Silakan tempelkan tautan verifikasi dari email Anda.');
+                return;
+            }
+
+            if (!state.email) {
+                showIslandNotif('error', 'Email Tidak Ada ❌', 'Silakan kembali ke Langkah 1.');
+                goToStep1();
+                return;
+            }
+
+            state.rawLink = rawLinkInput;
+            const btn = document.getElementById('btn-step-2');
+            const btnText = document.getElementById('btn-step-2-text');
+
+            if (btn) {
+                btn.disabled = true;
+                btn.classList.add('opacity-75', 'cursor-not-allowed');
+            }
+            if (btnText) {
+                btnText.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1"></i> Memverifikasi Token...';
+            }
+
+            showIslandNotif('process', 'Memverifikasi Akun...', 'Memeriksa token tautan verifikasi...');
+
+            try {
+                const res = await post('verify-account', {
+                    email: state.email,
+                    rawLink: state.rawLink
+                });
+
+                if (!res || !res.success) {
+                    throw new Error(res?.message || 'Verifikasi akun gagal. Pastikan link lengkap & belum kadaluarsa.');
+                }
+
+                const idToken = res.idToken || res.profile?.idToken;
+
+                if (!idToken) {
+                    throw new Error('idToken tidak ditemukan dari hasil verifikasi.');
+                }
+
+                state.idToken = idToken;
+
+                showIslandNotif('success', 'Verifikasi Berhasil! ✅', 'Token terverifikasi. Lanjut ke Langkah 3 untuk aktivasi.');
+
+                setTimeout(() => {
+                    goToStep3();
+                }, 1000);
+
+            } catch (err) {
+                const errorMessage = err.response?.data?.message || err.message || 'Gagal memverifikasi tautan.';
+                showIslandNotif('error', 'Verifikasi Gagal ❌', errorMessage);
+            } finally {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                }
+                if (btnText) {
+                    btnText.innerText = 'Verifikasi Akun (Langkah 2)';
+                }
+            }
+        }
+
+        // Navigation Functions
+        function goToStep2() {
+            state.step = 2;
+            const emailDisp = document.getElementById('saved-email-display');
+            if (emailDisp) emailDisp.innerText = state.email || 'Email Terdaftar';
+
+            const statusEl = document.getElementById('island-status');
+            if (statusEl) statusEl.innerText = '';
+            const badgeEl = document.getElementById('badge-step');
+            if (badgeEl) badgeEl.style.display = 'none';
+
+            document.getElementById('progress-segment-1').className = 'flex-1 h-2 rounded-full bg-iosBlue transition-all duration-500';
+            document.getElementById('progress-segment-2').className = 'flex-1 h-2 rounded-full bg-iosBlue transition-all duration-500';
+            document.getElementById('progress-segment-3').className = 'flex-1 h-2 rounded-full bg-gray-200 transition-all duration-500';
+
+            document.getElementById('card-step-1').classList.add('hidden');
+            document.getElementById('card-step-3').classList.add('hidden');
+            const card2 = document.getElementById('card-step-2');
+            if (card2) {
+                card2.classList.remove('hidden');
+                card2.classList.add('animate-ios-slide-in');
+            }
+
+            const rawInput = document.getElementById('raw-link-input');
+            if (rawInput) rawInput.focus();
+        }
+
+        function goToStep1() {
+            state.step = 1;
+            dismissIslandNotif();
+            document.body.classList.remove('red-theme-active', 'gold-theme-active');
+            
+            const statusEl = document.getElementById('island-status');
+            if (statusEl) statusEl.innerText = '';
+            const badgeEl = document.getElementById('badge-step');
+            if (badgeEl) badgeEl.style.display = 'none';
+
+            document.getElementById('progress-segment-1').className = 'flex-1 h-2 rounded-full bg-iosBlue transition-all duration-500';
+            document.getElementById('progress-segment-2').className = 'flex-1 h-2 rounded-full bg-gray-200 transition-all duration-500';
+            document.getElementById('progress-segment-3').className = 'flex-1 h-2 rounded-full bg-gray-200 transition-all duration-500';
+
+            document.getElementById('card-step-2').classList.add('hidden');
+            document.getElementById('card-step-3').classList.add('hidden');
+            const card1 = document.getElementById('card-step-1');
+            if (card1) card1.classList.remove('hidden');
+        }
+
+        function goToStep3() {
+            state.step = 3;
+            const emailDisp3 = document.getElementById('step3-email-display');
+            if (emailDisp3) emailDisp3.innerText = state.email;
+
+            const statusEl = document.getElementById('island-status');
+            if (statusEl) statusEl.innerText = '';
+            const badgeEl = document.getElementById('badge-step');
+            if (badgeEl) badgeEl.style.display = 'none';
+
+            document.getElementById('progress-segment-1').className = 'flex-1 h-2 rounded-full bg-iosBlue transition-all duration-500';
+            document.getElementById('progress-segment-2').className = 'flex-1 h-2 rounded-full bg-iosBlue transition-all duration-500';
+            document.getElementById('progress-segment-3').className = 'flex-1 h-2 rounded-full bg-iosBlue transition-all duration-500';
+
+            document.getElementById('card-step-1').classList.add('hidden');
+            document.getElementById('card-step-2').classList.add('hidden');
+            const card3 = document.getElementById('card-step-3');
+            if (card3) {
+                card3.classList.remove('hidden');
+                card3.classList.add('animate-ios-slide-in');
+            }
+        }
+
+        // Handle Step 3: Apply Premium
+        async function handleApplyPremium() {
+            if (!state.idToken || !state.email) {
+                showIslandNotif('error', 'Token Tidak Sesuai ❌', 'Silakan lakukan verifikasi ulang di Langkah 2.');
+                goToStep2();
+                return;
+            }
+
+            const btn = document.getElementById('btn-step-3');
+            const btnText = document.getElementById('btn-step-3-text');
+
+            if (btn) {
+                btn.disabled = true;
+                btn.classList.add('opacity-75', 'cursor-not-allowed');
+            }
+            if (btnText) {
+                btnText.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1"></i> Mengaktifkan Premium...';
+            }
+
+            showIslandNotif('process', 'Mengaktifkan Premium...', 'Mengaplikasikan status premium ke akun Anda...');
+
+            try {
+                const premium = await post('apply-premium', {
+                    email: state.email,
+                    idToken: state.idToken
+                });
+
+                if (!premium || !premium.success) {
+                    throw new Error(premium?.message || 'Proses aktivasi premium gagal. Token mungkin kadaluarsa.');
+                }
+
+                transformToGoldTheme();
+                launchGoldConfetti();
+                showIslandNotif('gold', 'Aktivasi Premium Berhasil! 👑', premium.message || `Selamat, akun premium telah aktif untuk ${state.email}.`);
+
+                const statusEl = document.getElementById('island-status');
+                if (statusEl) statusEl.innerText = 'VIP Premium Lifetime Activated';
+
+                const card3 = document.getElementById('card-step-3');
+                if (card3) {
+                    card3.className = 'gold-glass-card rounded-[32px] p-8 shadow-2xl animate-ios-slide-in border border-amber-300/50';
+                    card3.innerHTML = `
+                        <div class="text-center space-y-5">
+                            <div class="relative inline-block">
+                                <div class="w-20 h-20 rounded-3xl bg-gradient-to-tr from-amber-500 via-yellow-400 to-amber-200 text-white flex items-center justify-center text-4xl shadow-xl shadow-amber-500/30 mx-auto transform hover:rotate-6 transition-transform">
+                                    <i class="fa-solid fa-crown text-amber-100"></i>
+                                </div>
+                                <span class="absolute -bottom-2 -right-2 px-2.5 py-0.5 rounded-full bg-amber-600 text-[10px] font-extrabold text-white tracking-widest uppercase shadow">VIP</span>
+                            </div>
+
+                            <div>
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-800 border border-amber-400/40 uppercase tracking-widest inline-block mb-2">
+                                    VIP STATUS UNLOCKED
+                                </span>
+                                <h2 class="text-2xl font-black text-slate-900 tracking-tight gold-shimmer">
+                                    SELAMAT & SUKSES! 🎉
+                                </h2>
+                                <p class="text-xs text-amber-900/80 font-medium mt-1">
+                                    Akun Anda resmi mendapatkan Akses Fitur Premium Sepenuhnya.
+                                </p>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-yellow-500/20 to-amber-500/10 border border-amber-400/40 text-left space-y-3 shadow-inner">
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-slate-600 font-medium">Pemilik Akun:</span>
+                                    <span class="font-bold text-slate-900 font-mono">${escapeHtml(state.email)}</span>
+                                </div>
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-slate-600 font-medium">Status Fitur:</span>
+                                    <span class="font-bold text-emerald-700 flex items-center gap-1">
+                                        <i class="fa-solid fa-circle-check"></i> Premium Aktif
+                                    </span>
+                                </div>
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-slate-600 font-medium">Masa Berlaku:</span>
+                                    <span class="font-bold text-amber-700">Permanent Access</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-2 text-left text-xs font-medium text-slate-800 pt-2">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-check-double text-amber-600"></i> Semua Fitur Terbuka
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-bolt text-amber-600"></i> Server Prioritas Kecepatan
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-shield-halved text-amber-600"></i> Garansi Bebas Iklan
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-headset text-amber-600"></i> Dukungan Bantuan VIP
+                                </div>
+                            </div>
+
+                            <button type="button" onclick="window.location.reload()" class="w-full py-3.5 px-4 bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 hover:opacity-90 active:scale-[0.98] text-white font-bold text-sm rounded-2xl transition-all shadow-gold-button flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-rotate-right"></i>
+                                <span>Selesai & Aktifkan Akun Lain</span>
+                            </button>
+                        </div>
+                    `;
+                }
+
+            } catch (err) {
+                const errorMsg = err.message || 'Terjadi kesalahan saat mengaktifkan premium.';
+                showIslandNotif('error', 'Aktivasi Gagal! ❌', errorMsg);
+                transformToRedTheme(errorMsg);
+            } finally {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                }
+                if (btnText) btnText.innerText = 'Klik di Sini untuk Aktifkan Premium';
+            }
+        }
+
+        function transformToGoldTheme() {
+            document.body.classList.remove('red-theme-active');
+            document.body.classList.add('gold-theme-active');
+            
+            const blob1 = document.getElementById('blob-1');
+            const blob2 = document.getElementById('blob-2');
+            const blob3 = document.getElementById('blob-3');
+
+            if (blob1) blob1.className = 'ambient-blob w-96 h-96 bg-amber-300 top-[5%] left-[10%] animate-pulse';
+            if (blob2) blob2.className = 'ambient-blob w-[30rem] h-[30rem] bg-yellow-200 bottom-[10%] right-[10%]';
+            if (blob3) blob3.className = 'ambient-blob w-80 h-80 bg-amber-100 top-[40%] right-[25%]';
+
+            ['progress-segment-1', 'progress-segment-2', 'progress-segment-3'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.className = 'flex-1 h-2 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 transition-all duration-700 shadow-sm';
+            });
+        }
+
+        function transformToRedTheme(errorMsg) {
+            document.body.classList.remove('gold-theme-active');
+            document.body.classList.add('red-theme-active');
+            
+            const blob1 = document.getElementById('blob-1');
+            const blob2 = document.getElementById('blob-2');
+            const blob3 = document.getElementById('blob-3');
+
+            if (blob1) blob1.className = 'ambient-blob w-96 h-96 bg-red-300 top-[5%] left-[10%] animate-pulse';
+            if (blob2) blob2.className = 'ambient-blob w-[30rem] h-[30rem] bg-rose-200 bottom-[10%] right-[10%]';
+            if (blob3) blob3.className = 'ambient-blob w-80 h-80 bg-pink-200 top-[40%] right-[25%]';
+
+            ['progress-segment-1', 'progress-segment-2', 'progress-segment-3'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.className = 'flex-1 h-2 rounded-full bg-rose-500 transition-all duration-700 shadow-sm';
+            });
+
+            const card3 = document.getElementById('card-step-3');
+            if (card3) {
+                card3.className = 'red-glass-card rounded-[32px] p-8 shadow-2xl animate-ios-slide-in border border-rose-300/60';
+                card3.innerHTML = `
+                    <div class="text-center space-y-5">
+                        <div class="relative inline-block">
+                            <div class="w-20 h-20 rounded-3xl bg-gradient-to-tr from-red-600 via-rose-500 to-pink-400 text-white flex items-center justify-center text-4xl shadow-xl shadow-red-500/30 mx-auto transform hover:rotate-6 transition-transform">
+                                <i class="fa-solid fa-triangle-exclamation text-white"></i>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-800 border border-rose-400/40 uppercase tracking-widest inline-block mb-2">
+                                PROSES AKTIVASI GAGAL
+                            </span>
+                            <h2 class="text-2xl font-black text-rose-950 tracking-tight">
+                                AKTIVASI TIDAK BERHASIL ❌
+                            </h2>
+                            <p class="text-xs text-rose-900/80 font-medium mt-1">
+                                Sistem tidak dapat menyelesaikan permintaan aktivasi akun Anda.
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-rose-500/10 border border-rose-300/60 text-left space-y-2.5 shadow-inner">
+                            <p class="text-xs font-bold text-rose-800 flex items-center gap-1.5">
+                                <i class="fa-solid fa-circle-xmark text-rose-600"></i> Detail Penyebab Error:
+                            </p>
+                            <p class="text-xs text-rose-900 font-mono bg-white/60 p-2.5 rounded-xl border border-rose-200/80 break-words">
+                                ${escapeHtml(errorMsg)}
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-100/80 border border-slate-200/80 text-left space-y-2 text-xs text-slate-700">
+                            <p class="font-bold text-slate-900"><i class="fa-solid fa-lightbulb text-amber-500 mr-1"></i> Keterangan & Solusi:</p>
+                            <ul class="list-disc list-inside space-y-1 text-[11px] text-slate-600">
+                                <li><strong>Magic Link Kadaluarsa:</strong> Link dari email hanya berlaku sekali & memiliki batas waktu singkat.</li>
+                                <li><strong>Format Tautan Salah:</strong> Pastikan Anda menyalin tautan verifikasi email secara utuh dari awal sampai akhir.</li>
+                                <li><strong>Token Sudah Digunakan:</strong> Mintalah Magic Link baru jika link sebelumnya sudah pernah diverifikasi.</li>
+                            </ul>
+                        </div>
+
+                        <button type="button" onclick="goToStep1()" class="w-full py-3.5 px-4 bg-gradient-to-r from-red-600 via-rose-600 to-pink-600 hover:opacity-90 active:scale-[0.98] text-white font-bold text-sm rounded-2xl transition-all shadow-md flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            <span>Ulangi dari Langkah 1 (Kirim Link Baru)</span>
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function launchGoldConfetti() {
+            if (typeof confetti === 'function') {
+                const count = 200;
+                const defaults = {
+                    origin: { y: 0.6 },
+                    colors: ['#FFD700', '#FFA500', '#D4AF37', '#FFF8E1', '#FFFFFF']
+                };
+
+                function fire(particleRatio, opts) {
+                    confetti({
+                        ...defaults,
+                        ...opts,
+                        particleCount: Math.floor(count * particleRatio)
+                    });
+                }
+
+                fire(0.25, { spread: 26, startVelocity: 55 });
+                fire(0.2, { spread: 60 });
+                fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+                fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+                fire(0.1, { spread: 120, startVelocity: 45 });
+            }
+        }
+
+        async function pasteFromClipboard() {
+            try {
+                let text = '';
+                if (navigator.clipboard && navigator.clipboard.readText) {
+                    text = await navigator.clipboard.readText();
+                }
+
+                if (text) {
+                    document.getElementById('raw-link-input').value = text;
+                }
+            } catch (err) {
+                // Clipboard fallback handled silently
+            }
+        }
+    </script>
+</body>
+</html>
